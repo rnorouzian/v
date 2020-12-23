@@ -12,7 +12,7 @@ message(Break, notice, Break)
 
 
 
-need <- c('car','psych','reshape','tidyverse','lme4','nlme','MASS','CCA',
+need <- c('car','psych','reshape','tidyverse','lme4','nlme','MASS','CCA','matrixcalc',
           'parallel','rela','gplots','ICSNP','mvtnorm','mvnormtest','normtest',
           'normwhn.test','nortest','biotools','effects','ez','yacca')
 
