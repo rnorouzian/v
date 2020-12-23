@@ -13,7 +13,7 @@ message(Break, notice, Break)
 
 
 need <- c('car','psych','reshape','tidyverse','lme4','nlme','MASS','CCA','matrixcalc', 'mvoutlier',
-          'parallel','rela','gplots','ICSNP','mvtnorm','mvnormtest','normtest',
+          'parallel','rela','gplots','ICSNP','mvtnorm','mvnormtest','normtest', 'micompr', 'heplots',
           'normwhn.test','nortest','biotools','effects','ez','yacca')
 
 not.have <- need[!(need %in% installed.packages()[,"Package"])]
