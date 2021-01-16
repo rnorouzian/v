@@ -56,18 +56,18 @@ gen_mv_data <- function(n, mu1, mu2, mu3 = NULL, mu4 = NULL, cov1, cov2 = cov1, 
 
 
 
-need <- c('car','psych','reshape','tidyverse','lme4','nlme','MASS','CCA','matrixcalc', 'mvoutlier', 'vegan', 'haven',
+needzzsf <- c('car','psych','reshape','tidyverse','lme4','nlme','MASS','CCA','matrixcalc', 'mvoutlier', 'vegan', 'haven',
           'parallel','rela','gplots','ICSNP','mvtnorm','mvnormtest','normtest', 'micompr', 'heplots', 'HSAUR',
           'normwhn.test','nortest','biotools','effects','ez','yacca')
 
-not.have <- need[!(need %in% installed.packages()[,"Package"])]
-if(length(not.have)) install.packages(not.have)
+not.have23 <- needzzsf[!(needzzsf %in% installed.packages()[,"Package"])]
+if(length(not.have23)) install.packages(not.have23)
 
 
 suppressWarnings(
 suppressMessages({ 
   
-  for(i in need){
+  for(i in needzzsf){
     library(i, character.only = TRUE)
   }
 }))
