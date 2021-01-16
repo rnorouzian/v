@@ -53,9 +53,28 @@ gen_mv_data <- function(n, mu1, mu2, mu3 = NULL, mu4 = NULL, cov1, cov2 = cov1, 
 #                    cov4 = matrix(c(3,1,1,1,3,1,1,1,3),3,3), k = 4)
 
 
+#=======================================================================
 
+G_matrix <- function(fit, digits = 8){
 
+if(inherits(fit, c("lmerMod", "lmerModLmerTest", "lme4"))){
+  
+  vc <- VarCorr(fit)
+  out <- as.matrix(Matrix::bdiag(vc))
+  if(is.null(unlist(dimnames(out)))) {
+    nm <- unlist(lapply(vc, function(x) attributes(x)$dimnames[1]))
+    dimnames(out) <- list(nm, nm)
+  }
+  round(out, digits)
+  
+} else if(inherits(fit, "lme")) { round(getVarCov(fit), digits) }
 
+}
+                        
+#=======================================================================                        
+                        
+                        
+                        
 needzzsf <- c('car','psych','reshape','tidyverse','lme4','nlme','MASS','CCA','matrixcalc', 'mvoutlier', 'vegan', 'haven',
           'parallel','rela','gplots','ICSNP','mvtnorm','mvnormtest','normtest', 'micompr', 'heplots', 'HSAUR',
           'normwhn.test','nortest','biotools','effects','ez','yacca')
