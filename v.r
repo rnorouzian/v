@@ -72,13 +72,12 @@ if(inherits(fit, c("lmerMod", "lmerModLmerTest", "lme4"))){
 }
                         
 #=======================================================================                        
-                        
-                        
-                        
+                                             
 needzzsf <- c('car','psych','reshape','tidyverse','lme4','nlme','MASS','CCA','matrixcalc', 'mvoutlier', 'vegan', 'haven',
-          'parallel','rela','gplots','ICSNP','mvtnorm','mvnormtest','normtest', 'micompr', 'heplots', 'HSAUR',
+          'parallel','rela','gplots','ICSNP','mvtnorm','mvnormtest','normtest', 'micompr', 'heplots', 'HSAUR', 'bbmle',
           'normwhn.test','nortest','biotools','effects','ez','yacca')
 
+                        
 not.have23 <- needzzsf[!(needzzsf %in% installed.packages()[,"Package"])]
 if(length(not.have23)) install.packages(not.have23)
 
