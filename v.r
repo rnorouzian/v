@@ -247,8 +247,10 @@ environment(plot.efflist) <- asNamespace("effects")
     
     
 #========================================================================                        
-                                             
-needzzsf <- c('car','psych','reshape','tidyverse','lme4','nlme','MASS','CCA','matrixcalc', 'mvoutlier', 'vegan', 'haven', 'fastDummies', "emmeans", 'sjPlot', 'lmerTest', 'reghelper',
+
+# 'sjPlot', 'sjstats'    
+    
+needzzsf <- c('car','psych','reshape','tidyverse','lme4','nlme','MASS','CCA','matrixcalc', 'mvoutlier', 'vegan', 'haven', 'fastDummies', "emmeans", 'lmerTest', 'reghelper',
           'parallel','rela','gplots','ICSNP','mvtnorm','mvnormtest','normtest', 'micompr', 'heplots', 'HSAUR', 'bbmle', 'jtools', 'stargazer', 'interactions',
           'normwhn.test','nortest','biotools','effects','ez','yacca')
 
