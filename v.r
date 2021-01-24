@@ -76,7 +76,7 @@ G_matrix <- function(fit, digits = 8){
                           
 G_pca <- function(fit) {
   
-  if(!inherits(fit, c("lmerMod", "lmerModLmerTest", "lme4", "lme"))) stop("Non-lme4 model detected.", call. = FALSE)
+  if(!inherits(fit, c("lmerMod", "lmerModLmerTest", "lme4"))) stop("Non-lme4 model detected.", call. = FALSE)
   obj <- summary(lme4::rePCA(fit))
   model <- lme4::VarCorr(fit)
   if(length(obj) == length(model)) {
