@@ -71,7 +71,26 @@ G_matrix <- function(fit, digits = 8){
   } else if(inherits(fit, "lme") & length(fit$group) < 2) { round(getVarCov(fit), digits) } else { vc }
   
 }
-                        
+      
+#=======================================================================
+                          
+G_pca <- function(fit) {
+  
+  if(!inherits(fit, c("lmerMod", "lmerModLmerTest", "lme4", "lme"))) stop("Non-lme4 model detected.", call. = FALSE)
+  obj <- summary(lme4::rePCA(fit))
+  model <- lme4::VarCorr(fit)
+  if(length(obj) == length(model)) {
+    obj <- Map(function(x, z) {
+      colnames(x$importance) <- paste(z, colnames(model[[z]]), sep = '_')
+      x
+    }, obj, names(obj))
+  }
+  else if(length(obj) == 1) {
+    colnames(obj[[1]]$importance) <- unlist(mapply(paste, names(model), sapply(model, colnames), MoreArgs = list(sep = '_')))
+  }
+  return(obj)
+}                          
+                                                  
 #=======================================================================
                         
 do_context <- function(data, context_vars, group_id){
