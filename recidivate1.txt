@@ -1,0 +1,150 @@
+recidivate	prior	violent	nonviolent	education
+no arrest	2	0	1	17
+no arrest	1	0	0	16
+no arrest	1	0	0	16
+no arrest	3	0	0	16
+no arrest	2	0	0	15
+no arrest	2	0	0	15
+no arrest	1	0	0	15
+no arrest	3	1	0	15
+no arrest	1	0	0	14
+no arrest	2	0	0	14
+no arrest	3	1	0	14
+no arrest	3	1	0	14
+no arrest	2	1	0	14
+no arrest	2	0	0	14
+no arrest	0	1	0	14
+no arrest	0	1	0	14
+no arrest	3	0	0	14
+no arrest	2	1	0	14
+no arrest	2	1	1	14
+no arrest	0	0	0	13
+no arrest	3	0	0	13
+no arrest	1	0	0	13
+no arrest	1	0	0	13
+no arrest	3	0	0	13
+no arrest	3	0	0	13
+no arrest	3	1	0	13
+no arrest	3	1	0	13
+no arrest	0	1	0	13
+no arrest	4	1	0	13
+no arrest	3	0	0	13
+no arrest	3	0	0	13
+no arrest	3	1	0	13
+no arrest	3	1	0	13
+no arrest	0	1	0	13
+no arrest	1	0	0	13
+no arrest	0	0	0	13
+no arrest	3	1	0	13
+no arrest	3	1	0	13
+no arrest	3	0	0	13
+no arrest	4	0	0	13
+no arrest	2	1	1	13
+no arrest	2	0	1	13
+no arrest	4	0	1	13
+no arrest	2	0	1	13
+no arrest	2	1	0	12
+no arrest	2	1	0	12
+no arrest	2	1	0	12
+no arrest	2	0	0	12
+no arrest	4	0	0	12
+no arrest	2	0	0	12
+no arrest	2	0	0	12
+no arrest	2	1	0	12
+no arrest	1	0	0	12
+no arrest	2	0	0	12
+no arrest	2	0	0	12
+no arrest	2	0	1	12
+no arrest	2	0	1	12
+no arrest	3	0	1	12
+no arrest	2	0	1	12
+no arrest	3	1	1	12
+no arrest	4	0	1	12
+no arrest	4	0	1	12
+no arrest	1	1	1	12
+no arrest	1	0	1	12
+no arrest	3	0	1	12
+no arrest	3	1	0	11
+no arrest	2	0	0	11
+no arrest	3	0	0	11
+no arrest	4	0	0	11
+no arrest	2	1	0	11
+no arrest	2	0	1	11
+no arrest	3	1	1	11
+no arrest	2	1	1	11
+no arrest	0	1	0	10
+no arrest	2	1	0	10
+no arrest	4	1	0	10
+no arrest	3	1	0	10
+no arrest	2	0	1	10
+no arrest	1	0	1	10
+no arrest	1	0	1	10
+no arrest	4	0	1	10
+no arrest	2	1	1	9
+arrest	3	0	1	16
+arrest	2	0	0	14
+arrest	3	1	1	14
+arrest	5	1	0	13
+arrest	5	1	0	13
+arrest	4	1	0	13
+arrest	3	0	0	13
+arrest	3	0	0	13
+arrest	4	1	0	13
+arrest	5	0	0	13
+arrest	3	1	1	13
+arrest	3	1	1	13
+arrest	4	0	1	13
+arrest	2	1	1	13
+arrest	3	1	1	13
+arrest	3	0	0	12
+arrest	4	1	0	12
+arrest	4	1	0	12
+arrest	2	1	0	12
+arrest	4	1	0	12
+arrest	1	1	0	12
+arrest	3	0	1	12
+arrest	4	1	1	12
+arrest	3	1	1	12
+arrest	2	1	1	12
+arrest	4	0	1	12
+arrest	2	0	1	12
+arrest	2	1	1	12
+arrest	2	1	1	12
+arrest	2	1	1	12
+arrest	1	1	1	12
+arrest	4	1	1	12
+arrest	4	1	1	12
+arrest	3	0	0	11
+arrest	3	0	0	11
+arrest	3	1	0	11
+arrest	2	1	0	11
+arrest	4	0	0	11
+arrest	3	1	0	11
+arrest	4	1	0	11
+arrest	4	1	0	11
+arrest	3	1	0	11
+arrest	4	1	0	11
+arrest	4	1	1	11
+arrest	6	1	1	11
+arrest	4	1	1	11
+arrest	5	1	1	11
+arrest	5	1	1	11
+arrest	4	1	1	11
+arrest	3	1	1	11
+arrest	3	1	1	11
+arrest	2	1	0	11
+arrest	3	1	0	11
+arrest	4	1	1	11
+arrest	4	1	1	11
+arrest	5	1	0	10
+arrest	3	1	0	10
+arrest	3	1	0	10
+arrest	3	1	0	10
+arrest	2	1	0	10
+arrest	3	0	0	10
+arrest	3	1	0	10
+arrest	5	0	1	10
+arrest	3	1	1	10
+arrest	3	0	1	10
+arrest	5	0	0	10
+arrest	3	1	1	8
