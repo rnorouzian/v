@@ -221,7 +221,53 @@ vrs <- as.numeric(VarCorr(fit)[,"Variance"])
 sum(if(resid) vrs else rev(vrs)[-1], na.rm = TRUE)
 }                               
                                                        
+#==================================================================================================================================
 
+multilogit <- function (...){
+  
+  X <- list(...)
+  K <- length(X)
+  X <- as.data.frame(X)
+  N <- nrow(X)
+  if(N == 1){
+    f <- exp(X[1, ])
+    below <- sum(f)
+    as.numeric(f/below)
+  } else {
+    f <- lapply(1:N, function(i) exp(X[i, ]))
+    below <- sapply(1:N, function(i) sum(f[[i]]))
+    p <- sapply(1:N, function(i) unlist(f[[i]])/below[i])
+    p <- t(as.matrix(p))
+    colnames(p) <- NULL
+    p
+  }
+}
+                
+                
+#====================================================================================================================
+             
+                
+inv.multilogit <- function(x, lambda = 1, diff = TRUE, log = FALSE){
+  
+  x <- round(x)
+  
+  if(length(x) == 1){ x <- 0:x  ;
+  message("Note: ", length(x), " categories were assumed.")
+  }
+  
+  if(diff){ 
+    x <- x - min(x)
+    f <- exp(lambda * x)
+  }
+  if(!log){
+    output <- f/sum(f)
+  } else {
+    output <- log(f) - log(sum(f))
+  }
+  output
+}
+         
+                   
     
 #===================================================================================================================================
     
