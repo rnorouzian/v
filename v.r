@@ -295,7 +295,7 @@ inv.logit <- function(x, percent = FALSE, digits = 4){
 # Some hack to turn off unnneeded tick mark on the 3rd and 4th axes of plot effects
                                     
 plot.efflist <- function (x, selection, rows, cols, graphics = TRUE, 
-                          lattice, ...) 
+                          lattice, rug = FALSE, multiline = TRUE, ...) 
 {
   lattice <- if (missing(lattice)) 
     list()
