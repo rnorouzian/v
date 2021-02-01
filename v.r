@@ -382,6 +382,17 @@ mm <- model.matrix(as.formula(formula), data = data)
 
 noquote(colnames(mm))
 }
+     
+                    
+#========================================================================                        
+                    
+                    
+form_length <- function(...){
+  
+  sapply(list(...),
+         function(x) nchar(as.character(x)[[3]]))
+  
+}                    
                     
 #========================================================================                        
 
