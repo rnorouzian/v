@@ -340,7 +340,21 @@ odiag <- function(x) x[(n <- nrow(x))^2-(1:n)*(n-1)]
 
 #===========================================================================================================================
 
+lo_ave_up <- function(data = NULL, vars, vals = NULL){
+  
+  if(is.null(vals)){
+    sapply(vars, function(x) 
+      round(setNames(mean(data[[x]]) + c(-1, 0, 1)*sd(data[[x]]), 
+               paste0(x, c('-1SD', '.Mean', '+1SD'))), 9), simplify = FALSE) 
+  } else {
+    
+    setNames(lapply(vars, function(i) vals), vars)
+  }
+}             
 
+#============================================================================================================================
+         
+         
 inv <- function (X, tol = sqrt(.Machine$double.eps)) 
 {
   if (length(dim(X)) > 2L || !(is.numeric(X) || is.complex(X))) 
