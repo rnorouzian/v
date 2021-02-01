@@ -393,7 +393,23 @@ form_length <- function(...){
          function(x) nchar(as.character(x)[[3]]))
   
 }                    
-                    
+ 
+         
+#========================================================================         
+         
+         
+edf <- function(emm_fit) min(as.data.frame(emm_fit)$df, na.rm = TRUE)
+
+#========================================================================
+         
+sigma_effsize <- function(fit) { 
+ 
+  vc <- VarCorr(fit)
+   
+  if(inherits(fit, "lme")) sqrt(sum(as.numeric(vc[,"Variance"]), na.rm = TRUE)) else 
+    sqrt(sum(as.numeric(c(attr(vc[[1]], "stddev"), attr(vc, "sc")))^2, na.rm = TRUE))
+}         
+         
 #========================================================================                        
 
 # 'sjPlot', 'sjstats'    
