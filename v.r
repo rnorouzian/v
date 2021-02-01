@@ -340,12 +340,12 @@ odiag <- function(x) x[(n <- nrow(x))^2-(1:n)*(n-1)]
 
 #===========================================================================================================================
 
-lo_ave_up <- function(data = NULL, vars, vals = NULL){
+lo_ave_up <- function(data = NULL, vars, vals = NULL, digits = 9){
   
   if(is.null(vals)){
     sapply(vars, function(x) 
       round(setNames(mean(data[[x]]) + c(-1, 0, 1)*sd(data[[x]]), 
-               paste0(x, c('-1SD', '.Mean', '+1SD'))), 9), simplify = FALSE) 
+               paste0(x, c('-1SD', '.Mean', '+1SD'))), digits), simplify = FALSE) 
   } else {
     
     setNames(lapply(vars, function(i) vals), vars)
