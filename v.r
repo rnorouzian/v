@@ -371,7 +371,18 @@ inv <- function (X, tol = sqrt(.Machine$double.eps))
     array(0, dim(X)[2L:1L])
   else Xsvd$v[, Positive, drop = FALSE] %*% ((1/Xsvd$d[Positive]) * 
        t(Xsvd$u[, Positive, drop = FALSE]))
-}    
+}   
+                    
+                    
+#========================================================================                        
+                    
+what_estimate <- function(formula, data){
+  
+mm <- model.matrix(as.formula(formula), data = data)
+
+noquote(colnames(mm))
+}
+                    
 #========================================================================                        
 
 # 'sjPlot', 'sjstats'    
