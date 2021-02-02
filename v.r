@@ -409,6 +409,16 @@ sigma_effsize <- function(fit) {
   if(inherits(fit, "lme")) sqrt(sum(as.numeric(vc[,"Variance"]), na.rm = TRUE)) else 
     sqrt(sum(as.numeric(c(attr(vc[[1]], "stddev"), attr(vc, "sc")))^2, na.rm = TRUE))
 }         
+
+         
+#=================================================================================================================================  
+
+lmectl <- function(maxIter = 200, msMaxIter = 200, niterEM = 50,
+                       msMaxEval = 400)
+  {
+  lmeControl(maxIter = maxIter, msMaxIter = msMaxIter, niterEM = niterEM,
+                         msMaxEval = msMaxEval)
+}         
          
 #========================================================================                        
 
