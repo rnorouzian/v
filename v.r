@@ -419,7 +419,61 @@ lmectl <- function(maxIter = 200, msMaxIter = 200, niterEM = 50,
   lmeControl(maxIter = maxIter, msMaxIter = msMaxIter, niterEM = niterEM,
                          msMaxEval = msMaxEval)
 }         
-       
+  
+         
+         
+#==== Developing rePCA & isSingular methods for lme models ====================================================================================================
+
+
+
+Tlist_lme <- function(fit) rev(pdMatrix(fit$modelStruct$reStruct, factor = TRUE))
+
+theta_lme <- function(fit) sapply(Tlist_lme(fit), function(i) i[lower.tri(i, diag = TRUE)])
+
+lowerbd <- function(x){
+     dd <- diag(0, nrow=nrow(x))
+     dd[lower.tri(dd)] <- -Inf
+     dd[lower.tri(dd, diag=TRUE)]
+   }
+
+lwr_lme <- function(fit) sapply(Tlist_lme(fit), lowerbd)
+                                  
+         
+isSingular_lme <- function(fit, tol = 1e-04){ 
+  
+  lwr <- lwr_lme(fit)
+  theta <- theta_lme(fit)
+  any(theta[lwr == 0] < tol)
+}
+
+
+
+rePCA_lme <- function(x){
+
+chfs <- Tlist_lme(x)
+nms <- names(chfs)
+unms <- unique(nms)
+names(unms) <- unms
+
+svals <- function(m) { # this is applied each of the RE matrices
+  vv <- svd(m, nv = 0L)
+  names(vv) <- c("sdev", "rotation")
+  vv$center <- FALSE
+  vv$scale <- FALSE
+  class(vv) <- "prcomp"
+  vv
+}
+
+structure(lapply(unms, function(m)
+  svals(Matrix::bdiag(chfs[which(nms ==
+        m)]))), class = "prcomplist")
+}
+
+
+#====================================================================================================              
+         
+         
+         
 #========================================================================                        
 
 # 'sjPlot', 'sjstats'    
