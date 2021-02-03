@@ -419,26 +419,7 @@ lmectl <- function(maxIter = 200, msMaxIter = 200, niterEM = 50,
   lmeControl(maxIter = maxIter, msMaxIter = msMaxIter, niterEM = niterEM,
                          msMaxEval = msMaxEval)
 }         
-
-         
-#========================================================================
-         
-what_estimate <- function(formula, data){
-  
-mm <- model.matrix(as.formula(formula), data = data)
-
-noquote(colnames(mm))
-}                                                                                  
-   
-
-#========================================================================                                             
-                                         
-form_length <- function(...){
-  
-  sapply(list(...),
-         function(x) nchar(as.character(x)[[3]]))
-  
-}          
+       
 #========================================================================                        
 
 # 'sjPlot', 'sjstats'    
