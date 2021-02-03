@@ -441,4 +441,10 @@ suppressMessages({
   }
 }))
     
-source('https://raw.githubusercontent.com/rnorouzian/A/main/a.r')    
+source('https://raw.githubusercontent.com/rnorouzian/A/main/a.r') 
+         
+         
+formals(lmerControl)$check.nobs.vs.nRE <- "ignore"       
+formals(glmerControl)$check.nobs.vs.nRE <- "ignore"
+formals(glmerControl)$check.nobs.vs.nlev <- "ignore"
+formals(lmerControl)$check.nobs.vs.nlev <- "ignore"           
