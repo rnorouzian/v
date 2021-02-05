@@ -425,7 +425,6 @@ lmectl <- function(maxIter = 200, msMaxIter = 200, niterEM = 50,
 #==== Developing rePCA & isSingular methods for lme models ====================================================================================================
 
 
-
 Tlist_lme <- function(fit) rev(pdMatrix(fit$modelStruct$reStruct, factor = TRUE))
 
 theta_lme <- function(fit) sapply(Tlist_lme(fit), function(i) i[lower.tri(i, diag = TRUE)])
@@ -472,7 +471,14 @@ structure(lapply(unms, function(m)
 
 #====================================================================================================              
          
-         
+rm_cor_test_dups <- function(data) {
+  data %>%
+    filter(var1 != var2) %>%
+    mutate(col1 = pmin(var1, var2),
+           col2 = pmax(var1, var2)) %>%
+    distinct(col1, col2, .keep_all = TRUE) %>%
+    select(-col1, -col2)
+}         
          
 #========================================================================                        
 
