@@ -479,7 +479,37 @@ rm_cor_test_dups <- function(data) {
     distinct(col1, col2, .keep_all = TRUE) %>%
     select(-col1, -col2)
 }         
-         
+
+                 
+#======================================================================================================
+                 
+                 
+cor2G2 <- function(sd.int = 6, sd.slope = .01, rho = .3){
+    
+    cormat <-  matrix(c(sd.int, rho, rho, sd.slope), 2, 2)
+    res <- data.frame(lme4::sdcor2cov(cormat), row.names = c("V1", "V2") ) 
+    colnames(res) <- rownames(res)
+    as.matrix(res)
+  }
+  
+#======================================================================================================                 
+                 
+cor_DV <- function(rho = .7){  
+  
+  mu <- rep(0,2)
+  Sigma <- cor2G2(sd.int = 2, sd.slope = .275, rho = rho)
+  
+  rawvars <- as.data.frame(mvrnorm(n=1000, mu=mu, Sigma=Sigma, empirical = TRUE))
+  
+  p <- ggplot(rawvars)+aes(V1, V2) + geom_point()+stat_ellipse(color=2, size = 2) +
+    theme(axis.text.x=element_blank(),
+          axis.text.y=element_blank())
+  print(p)
+  round(cor(rawvars), 6)
+}
+
+#cor_DV(.9)                 
+                 
 #========================================================================                        
 
 # 'sjPlot', 'sjstats'    
