@@ -516,7 +516,7 @@ cor_DV <- function(rho = .7){
     
 needzzsf <- c('car','psych','reshape','tidyverse','lme4','nlme','MASS','CCA','matrixcalc', 'mvoutlier', 'vegan', 'haven', 'fastDummies', "emmeans", 'lmerTest', 'reghelper',
           'parallel','rela','gplots','ICSNP','mvtnorm','mvnormtest','normtest', 'micompr', 'heplots', 'HSAUR', 'bbmle', 'jtools', 'stargazer', 'interactions', 'broom.mixed',
-          'normwhn.test','nortest','biotools','effects','ez','yacca', 'effectsize', 'nnet', 'Hotelling', 'multcomp')
+          'normwhn.test','nortest','biotools','effects','ez','yacca', 'effectsize', 'nnet', 'Hotelling', 'multcomp','ICC')
 
                         
 not.have23 <- needzzsf[!(needzzsf %in% installed.packages()[,"Package"])]
