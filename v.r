@@ -509,6 +509,29 @@ cor_DV <- function(rho = .7){
 }
 
 #cor_DV(.9)                 
+   
+#========================================================================                        
+                 
+z2 <- function(n, mu0, mu, SIGMA){
+  
+  ddf = nrow(mu)
+  
+  z_2 = n*t(matrix(mu-mu0))%*%solve(SIGMA)%*%matrix(mu-mu0)
+  
+  crit_value = qchisq(.05, df = ddf, lower.tail = FALSE)
+  
+  p_value = pchisq(z_2, df = ddf, lower.tail = FALSE)
+  val <- round(c(z_2, crit_value),2)
+  
+  ci <- max(qchisq(.99, ddf), val)
+  curve(dchisq(x, ddf), -.01, ci, n=1e3, panel.last = abline(v=c(z_2, crit_value), col=1:2, lty = 3:2),
+        ylab = "Density", xlab = paste0("X^2 ", "(df=", 2,")"),lwd = 2)
+  pu <- mean(par("usr")[3:4])
+  
+  
+  text(c(z_2, crit_value), pu, c(paste("X^2=",val[1]),paste("Crit.X2=",val[2])), pos=4, srt = 90, xpd = NA)
+  data.frame(z2 = z_2, crit.value = crit_value, p.value = p_value)
+  }  
                  
 #========================================================================                        
 
