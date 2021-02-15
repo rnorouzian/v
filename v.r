@@ -532,6 +532,24 @@ z2 <- function(n, mu0, y_bar, SIGMA){
   text(c(z_2, crit_value), pu, c(paste("X^2=",val[1]),paste("Crit.X2=",val[2])), pos=4, srt = 90, xpd = NA)
   data.frame(z2 = z_2, crit.value = crit_value, p.value = p_value)
   }  
+  
+#========================================================================
+                 
+                 
+
+m <- function(N, p, k) N - 1 - (p + k)/2
+s <- function(N, p, k) sqrt( (p^2*(k-1)^2 -4) / (p^2 + (k-1)^2 -5) )
+
+lambda2F <- function(lambda, N, p, k) 
+  { 
+  
+val =  ((1-sqrt(lambda))/ (sqrt(lambda)))*((m(N,p,k)*s(N,p,k)-(p*(k-1)/2) +1 )/(p*(k-1)))
+df1 = p*(k-1)  
+df2 = (m(N,p,k)*s(N,p,k)-(p*(k-1))/2)+1
+
+c(F_value=val, df1=df1, df2=df2)
+}                 
+                 
                  
 #========================================================================                        
 
