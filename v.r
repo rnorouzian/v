@@ -558,7 +558,18 @@ lambda2x2 <- function(lambda, N, p, k){
   X2 = -((N-1)-(.5*(p+k)))*log(lambda)
   df = p*(k-1)
   c(X2=X2, df=df)
+}  
+                 
+                 
+#========================================================================                 
+                 
+trim <- function(X){
+  X <- setNames(X, trimws(names(X)))
+  y <- sapply(names(X), function(x) is.character(as.vector(X[[x]])))
+  X[y] <- lapply(X[y], trimws)
+  return(X)
 }                 
+                 
 #========================================================================                        
 
 # 'sjPlot', 'sjstats'    
