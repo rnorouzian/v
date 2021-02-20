@@ -574,6 +574,14 @@ trim <- function(X){
               
 s_eta <- function(p, k) sqrt( ((p^2)*(k-1)^2 -4 ) / ((p^2)+(k-1)^2 -5 ) )              
                             
+              
+#=========================================================================              
+              
+box_m2 <- function(data, group){
+    dat <- dplyr::select(data, -{{group}})
+    rstatix::box_m(dat, data %>% pull({{group}}))
+}
+              
 #========================================================================                        
 
 # 'sjPlot', 'sjstats'    
