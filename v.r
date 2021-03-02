@@ -581,7 +581,14 @@ box_m2 <- function(data, group){
     dat <- dplyr::select(data, -{{group}})
     rstatix::box_m(dat, data %>% pull({{group}}))
 }
+ 
               
+#========================================================================              
+              
+F2T2 <- function(F_value, n1, n2, p) F_value / (( n1+n2 - p-1 )/(p*(n1+n2-2)))
+
+F2D2 <- function(F_value, n1, n2, p) ((n1 + n2)/(n1*n2))*F2T2(F_value, n1, n2, p)
+           
 #========================================================================                        
 
 # 'sjPlot', 'sjstats'    
