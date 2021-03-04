@@ -608,7 +608,9 @@ suppressMessages({
     library(i, character.only = TRUE)
   }
 }))
-    
+  
+options(dplyr.summarise.inform = FALSE)
+              
 source('https://raw.githubusercontent.com/rnorouzian/A/main/a.r') 
          
          
