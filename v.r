@@ -601,7 +601,7 @@ F2D2 <- function(F_value, n1, n2, p) ((n1 + n2)/(n1*n2))*F2T2(F_value, n1, n2, p
            
 #========================================================================          
               
-lme2spss <- lmeControl(sigma=1e-5, opt ="optim", returnObject=TRUE)     
+#lme2spss <- lmeControl(sigma=1e-5, opt ="optim", returnObject=TRUE)     
               
               
 #========================================================================              
