@@ -601,7 +601,27 @@ F2D2 <- function(F_value, n1, n2, p) ((n1 + n2)/(n1*n2))*F2T2(F_value, n1, n2, p
            
 #========================================================================          
               
-lme2spss <- lmeControl(sigma=1e-5, opt ="optim", returnObject=TRUE)              
+lme2spss <- lmeControl(sigma=1e-5, opt ="optim", returnObject=TRUE)     
+              
+              
+#========================================================================              
+              
+plot.prof <- function(fit){
+  
+  if(!inherits(fit, c("lmerMod", "lmerModLmerTest", "lme4", "glmmTMB", "glmerMod"))) stop("Model not supported.", call. = FALSE)
+  
+  pp <- profile(fit, signames = FALSE)
+  
+  dd <- as.data.frame(pp)
+  
+  if(".zeta" %in% names(dd)) names(dd)[which(names(dd) == ".zeta")] <- "value"
+  if(inherits(fit, "glmmTMB")) dd$value <- sqrt(dd$value)
+  
+  ggplot2::ggplot(dd,aes(.focal, value)) +  geom_hline(yintercept = 0, colour = 8, linetype = 2) +
+    geom_line(colour = 2) + geom_point(colour = 2) +
+    facet_wrap(~.par, scale = "free_x") + xlab("Parameter Value") +
+    ylab("Zeta (Normal)")
+}
               
 #========================================================================              
 
