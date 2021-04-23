@@ -623,6 +623,69 @@ plot.prof <- function(fit){
     ylab("Zeta (Normal)")
 }
               
+#========================================================================   
+              
+exam.efa <- function(x, factors, data = NULL, covmat = NULL, n.obs = NA,
+                     subset = NULL, na.action = "na.omit", start = NULL,
+                     scores = c("none", "regression", "Bartlett"),
+                     rotation = "varimax", control = NULL, cutoff = .5, digits = 6, plot = TRUE, file.name = NULL, ...){
+  
+  
+  cc <- match.call(expand.dots = FALSE)
+  cc[[1]] <- quote(factanal)
+  fit <- eval.parent(cc)
+  fit$call <- match.call(expand.dots = FALSE)
+  
+  
+  res <- round(transform(subset(as.data.frame.table(fit[[2]]), Freq >= cutoff),
+                         Var2 = match(Var2, unique(Var2)), Var1 = as.numeric(Var1)), digits = digits)
+  
+  names(res) <- c("Item", "Factor", "Loading")
+  
+  rownames(res) <- NULL
+  
+  file.name <- trimws(file.name)  
+  
+  if(length(file.name) != 0){
+    
+    nm <- paste0(file.name, ".csv")
+    ur <- try(write.csv(res, nm, row.names = FALSE), silent = TRUE)
+    if(inherits(ur, "try-error")) stop(paste0("\nClose the Excel file '", nm, "' and try again OR pick another file name."), call. = FALSE)
+    message(paste0("\nNote: Check folder '", basename(getwd()),"' for the Excel file '", nm, "'.\n"))
+  } 
+  
+  f <- res$Factor
+  i <- res$Item
+  u <- unique(f)
+    
+  if(plot){
+    
+    graphics.off()
+    org.par <- par(no.readonly = TRUE)
+    on.exit(par(org.par))
+    par(mar = c(3.8, 1.1, 1.5, 4.1), mgp = c(1.7, .5, 0))
+    
+    y <- unlist(lapply(u, function(j) seq_len(sum(f == j))))
+    
+    plot(f, y, las = 1, pch = 22, cex = 1.2, xlim = c(-.1, max(f)+.1), axes = FALSE, xlab = NA, main = NA, font.lab = 2, ylab = NA)
+    
+    at <- mean(u)
+    
+    mtext("FACTORS", 1, line = 2.5, font = 2, at = at)
+    
+    text(f, 0, f, pos = 1, xpd = NA, font = 2, cex = 1.75)
+    
+    rect(u-.5, 0, u+.5, tapply(y, f, FUN = max)+.5, col = adjustcolor(1:8, .25), xpd = NA, border = NA)
+    
+    dup <- duplicated(i) | duplicated(i, fromLast = TRUE)
+    
+    text(f, y, i, pos = 4, cex = .7, xpd = NA, font = 2, col = ifelse(dup, 2, 1))
+    
+    legend(at, par('usr')[4], legend = "ITEMS", pch = 22, horiz = TRUE, bty = "n", text.font = 2, xpd = NA, pt.cex = 1.4, yjust = .5)
+  }
+  return(res)
+}                                
+              
 #========================================================================              
 
 # 'sjPlot', 'sjstats'    
