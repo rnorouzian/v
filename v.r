@@ -690,9 +690,9 @@ exam.efa <- function(x, factors, data = NULL, covmat = NULL, n.obs = NA,
 
 # 'sjPlot', 'sjstats'    
     
-needzzsf <- c('car','psych','reshape','tidyverse','lme4','nlme','MASS', 'ade4','matrixcalc', 'mvoutlier', 'vegan', 'haven', 'fastDummies', "emmeans", 'lmerTest', 'reghelper',
-          'parallel','rela','gplots','ICSNP','mvtnorm','mvnormtest','normtest', 'micompr', 'heplots', 'HSAUR', 'bbmle', 'jtools', 'stargazer', 'interactions', 'broom.mixed',
-          'normwhn.test','nortest','biotools','effects', 'effectsize', "paran", 'Hotelling', 'multcomp','ICC')
+needzzsf <- c('car','psych','tidyverse','lme4','nlme','MASS','matrixcalc', 'haven', 'lmerTest', 'reghelper',
+          'parallel','rela','bbmle', 'jtools','interactions', 'broom.mixed','GPArotation',
+          'effects', 'effectsize', "paran", 'Hotelling','ICC')
 
                         
 not.have23 <- needzzsf[!(needzzsf %in% installed.packages()[,"Package"])]
