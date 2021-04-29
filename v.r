@@ -691,7 +691,7 @@ exam.efa <- function(x, factors, data = NULL, covmat = NULL, n.obs = NA,
 # 'sjPlot', 'sjstats'    
     
 needzzsf <- c('car','psych','tidyverse','lme4','nlme','MASS','matrixcalc', 'haven', 'lmerTest', 'reghelper',
-          'parallel','rela','bbmle', 'jtools','interactions','GPArotation',
+          'parallel','rela','bbmle', 'jtools','interactions','GPArotation', 'rstatix',
           'effects', 'effectsize', "paran", 'Hotelling','ICC')
 
                         
